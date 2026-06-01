@@ -1,125 +1,224 @@
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+  HenYan's Blog — Global Design System
+  Clean, modern, light theme with premium typography
+*/
 
+/* ===== Design Tokens ===== */
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+	/* Colors */
+	--color-bg: #fafafa;
+	--color-bg-card: #ffffff;
+	--color-bg-code: #f4f4f5;
+	--color-text: #18181b;
+	--color-text-secondary: #71717a;
+	--color-text-muted: #a1a1aa;
+	--color-border: #e4e4e7;
+	--color-border-hover: #d4d4d8;
+
+	/* Accent — Indigo for tech */
+	--color-tech: #6366f1;
+	--color-tech-light: #e0e7ff;
+	--color-tech-dark: #4338ca;
+
+	/* Accent — Amber for life */
+	--color-life: #f59e0b;
+	--color-life-light: #fef3c7;
+	--color-life-dark: #d97706;
+
+	/* Primary accent */
+	--color-accent: #6366f1;
+	--color-accent-light: #e0e7ff;
+	--color-accent-hover: #4f46e5;
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
+	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+
+	/* Spacing */
+	--space-xs: 0.25rem;
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: 2rem;
+	--space-2xl: 3rem;
+	--space-3xl: 4rem;
+
+	/* Radius */
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-lg: 16px;
+	--radius-xl: 24px;
+	--radius-full: 9999px;
+
+	/* Transitions */
+	--transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+	/* Layout */
+	--max-width: 1100px;
+	--content-width: 720px;
 }
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 body {
-	font-family: var(--font-atkinson);
+	font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 	margin: 0;
 	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-size: 16px;
+	line-height: 1.75;
+	min-height: 100vh;
 }
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
+	color: var(--color-text);
+	line-height: 1.3;
 	font-weight: 700;
+	letter-spacing: -0.02em;
 }
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
 p {
-	margin-bottom: 1em;
+	margin-bottom: 1.25em;
+	color: var(--color-text);
 }
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--color-accent-hover);
+}
+
+/* ===== Prose (Article content) ===== */
+.prose {
+	max-width: var(--content-width);
+	margin: 0 auto;
+	font-size: 1.0625rem;
+	line-height: 1.8;
+}
+
+.prose h2 {
+	margin-top: 2.5rem;
+	margin-bottom: 1rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.prose h3 {
+	margin-top: 2rem;
+	margin-bottom: 0.75rem;
+}
+
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
+	color: var(--color-text);
 }
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
+
+.prose img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: var(--radius-md);
+	margin: 1.5rem 0;
 }
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+
+.prose blockquote {
+	border-left: 3px solid var(--color-accent);
+	padding: 0.5rem 0 0.5rem 1.25rem;
+	margin: 1.5rem 0;
+	color: var(--color-text-secondary);
+	font-style: italic;
+	background: var(--color-accent-light);
+	border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
+
+.prose code {
+	font-family: var(--font-mono), 'Fira Code', monospace;
+	font-size: 0.875em;
+	padding: 0.15em 0.4em;
+	background: var(--color-bg-code);
+	border-radius: 4px;
+	color: var(--color-accent);
 }
-pre > code {
+
+.prose pre {
+	padding: 1.25rem 1.5rem;
+	border-radius: var(--radius-md);
+	overflow-x: auto;
+	margin: 1.5rem 0;
+	border: 1px solid var(--color-border);
+}
+
+.prose pre > code {
 	all: unset;
+	font-family: var(--font-mono), 'Fira Code', monospace;
+	font-size: 0.875rem;
+	line-height: 1.6;
 }
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
+
+.prose ul, .prose ol {
+	margin: 1rem 0;
+	padding-left: 1.5rem;
 }
-hr {
+
+.prose li {
+	margin-bottom: 0.5rem;
+}
+
+.prose hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--color-border);
+	margin: 2.5rem 0;
 }
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+
+.prose table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5rem 0;
+}
+
+.prose th, .prose td {
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--color-border);
+	text-align: left;
+}
+
+.prose th {
+	background: var(--color-bg-code);
+	font-weight: 600;
+}
+
+/* ===== Utilities ===== */
+.container {
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 var(--space-lg);
 }
 
 .sr-only {
@@ -130,12 +229,47 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+	animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+	:root {
+		--space-lg: 1rem;
+	}
+
+	h1 { font-size: 2rem; }
+	h2 { font-size: 1.5rem; }
+	h3 { font-size: 1.25rem; }
+
+	.prose {
+		font-size: 1rem;
+	}
 }

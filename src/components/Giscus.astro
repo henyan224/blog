@@ -1,0 +1,80 @@
+---
+// Giscus comments component
+// Set up at: https://giscus.app
+// You need to:
+// 1. Enable GitHub Discussions on your blog repo
+// 2. Install the Giscus app on your repo
+// 3. Configure at giscus.app and update the values below
+
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'zh-CN' } = Astro.props;
+---
+
+<section class="comments" id="comments">
+	<h3 class="comments-title">💬 评论</h3>
+	<div class="giscus-container" id="giscus-container">
+		<p class="giscus-placeholder">评论加载中...</p>
+	</div>
+</section>
+
+<script>
+	// Lazy load Giscus when comments section is visible
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				const container = document.getElementById('giscus-container');
+				if (container && !container.querySelector('.giscus')) {
+					const script = document.createElement('script');
+					script.src = 'https://giscus.app/client.js';
+					script.setAttribute('data-repo', 'henyan224/blog');
+					script.setAttribute('data-repo-id', 'R_kgDOSt4PpA');
+					script.setAttribute('data-category', 'Announcements');
+					script.setAttribute('data-category-id', 'DIC_kwDOSt4PpM4C-Rhm');
+					script.setAttribute('data-mapping', 'pathname');
+					script.setAttribute('data-strict', '0');
+					script.setAttribute('data-reactions-enabled', '1');
+					script.setAttribute('data-emit-metadata', '0');
+					script.setAttribute('data-input-position', 'top');
+					script.setAttribute('data-theme', 'light');
+					script.setAttribute('data-lang', 'zh-CN');
+					script.setAttribute('data-loading', 'lazy');
+					script.crossOrigin = 'anonymous';
+					script.async = true;
+					container.innerHTML = '';
+					container.appendChild(script);
+				}
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { rootMargin: '200px' });
+
+	const commentsEl = document.getElementById('comments');
+	if (commentsEl) {
+		observer.observe(commentsEl);
+	}
+</script>
+
+<style>
+	.comments {
+		max-width: var(--content-width);
+		margin: var(--space-3xl) auto 0;
+		padding-top: var(--space-xl);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.comments-title {
+		font-size: 1.25rem;
+		margin-bottom: var(--space-lg);
+		color: var(--color-text);
+	}
+
+	.giscus-placeholder {
+		text-align: center;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		padding: var(--space-xl);
+	}
+</style>

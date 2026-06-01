@@ -5,52 +5,113 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+import Giscus from '../components/Giscus.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category, tags } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="zh-CN">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={`${title} | HenYan's Blog`} description={description} />
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
+			.article-container {
+				max-width: var(--content-width);
+				margin: 0 auto;
+				padding: var(--space-2xl) var(--space-lg);
+				animation: fadeInUp 0.6s ease-out;
+			}
+
+			.article-header {
+				margin-bottom: var(--space-2xl);
+				text-align: center;
+			}
+
+			.article-meta {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: var(--space-md);
+				margin-bottom: var(--space-lg);
+				flex-wrap: wrap;
+			}
+
+			.article-date {
+				font-size: 0.875rem;
+				color: var(--color-text-muted);
+			}
+
+			.article-updated {
+				font-size: 0.8125rem;
+				color: var(--color-text-muted);
+				font-style: italic;
+			}
+
+			.article-title {
+				font-size: 2.25rem;
+				font-weight: 800;
+				line-height: 1.2;
+				letter-spacing: -0.03em;
+				margin: 0 0 var(--space-md);
+			}
+
+			.article-desc {
+				font-size: 1.125rem;
+				color: var(--color-text-secondary);
+				line-height: 1.6;
 				margin: 0;
 			}
+
+			.article-tags {
+				display: flex;
+				justify-content: center;
+				gap: 0.5rem;
+				margin-top: var(--space-md);
+				flex-wrap: wrap;
+			}
+
+			.article-tag {
+				font-size: 0.8125rem;
+				color: var(--color-text-muted);
+				background: var(--color-bg-code);
+				padding: 0.2rem 0.625rem;
+				border-radius: var(--radius-full);
+				transition: all var(--transition-fast);
+			}
+
+			.article-tag:hover {
+				color: var(--color-accent);
+				background: var(--color-accent-light);
+			}
+
 			.hero-image {
-				width: 100%;
+				margin: 0 calc(-1 * var(--space-lg)) var(--space-2xl);
+				border-radius: var(--radius-lg);
+				overflow: hidden;
 			}
+
 			.hero-image img {
+				width: 100%;
 				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				border-radius: var(--radius-lg);
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+
+			.article-divider {
+				border: none;
+				border-top: 1px solid var(--color-border);
+				margin: var(--space-xl) 0 var(--space-2xl);
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
+
+			@media (max-width: 768px) {
+				.article-title {
+					font-size: 1.75rem;
+				}
+
+				.hero-image {
+					margin: 0 0 var(--space-xl);
+				}
 			}
 		</style>
 	</head>
@@ -58,27 +119,43 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<body>
 		<Header />
 		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
+			<article class="article-container">
+				<div class="article-header">
+					<div class="article-meta">
+						<CategoryBadge category={category} size="md" />
+						<span class="article-date">
 							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+						</span>
+						{updatedDate && (
+							<span class="article-updated">
+								（更新于 <FormattedDate date={updatedDate} />）
+							</span>
+						)}
 					</div>
+					<h1 class="article-title">{title}</h1>
+					<p class="article-desc">{description}</p>
+					{tags && tags.length > 0 && (
+						<div class="article-tags">
+							{tags.map((tag) => (
+								<span class="article-tag">#{tag}</span>
+							))}
+						</div>
+					)}
+				</div>
+
+				{heroImage && (
+					<div class="hero-image">
+						<Image width={1020} height={510} src={heroImage} alt={title} />
+					</div>
+				)}
+
+				<hr class="article-divider" />
+
+				<div class="prose">
 					<slot />
 				</div>
+
+				<Giscus />
 			</article>
 		</main>
 		<Footer />

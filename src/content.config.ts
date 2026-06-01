@@ -10,10 +10,13 @@ const blog = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
+			category: z.enum(['tech', 'life']),
+			tags: z.array(z.string()).default([]),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			lang: z.enum(['zh', 'en']).default('zh'),
 		}),
 });
 
