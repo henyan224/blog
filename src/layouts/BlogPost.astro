@@ -16,6 +16,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags } = 
 <html lang="zh-CN">
 	<head>
 		<BaseHead title={`${title} | HenYan's Blog`} description={description} />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 		<style>
 			.article-container {
 				max-width: var(--content-width);
@@ -112,6 +113,14 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags } = 
 				.hero-image {
 					margin: 0 0 var(--space-xl);
 				}
+			}
+
+			/* KaTeX 数学公式居中 */
+			:global(.katex-display) {
+				text-align: center;
+				overflow-x: auto;
+				overflow-y: hidden;
+				padding: 0.5em 0;
 			}
 		</style>
 	</head>

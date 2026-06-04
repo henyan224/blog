@@ -526,7 +526,7 @@ BPE 让模型自动发现了语言的构词规律（前缀、后缀、词根）�
 | 篇目 | 主题 | 核心内容 |
 |------|------|---------|
 | **第一篇（本篇）** | 全局观 | 架构鸟瞰、数据流、Embedding、BPE |
-| **第二篇** | Self-Attention | Q/K/V 是什么、缩放因子 √d_k 的数学证明、Attention 复杂度 |
+| **第二篇** | Self-Attention | Q、K、V 是什么、缩放因子 √d_k 的数学证明、Attention 复杂度 |
 | **第三篇** | Multi-Head + 位置编码 | 多头注意力的参数量、从 Sinusoidal 到 RoPE 的进化 |
 | **第四篇** | 砖与瓦 | Residual、LayerNorm、FFN、Causal Mask、Decoder-only 架构 |
 | **第五篇** | 训练到推理 | 损失函数、KV Cache、MQA/GQA、Flash Attention |
