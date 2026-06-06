@@ -3,7 +3,7 @@ title: 'Transformer 原理（四）：砖与瓦 —— Residual、LayerNorm、FF
 description: 'Transformer 系列第四篇。拆解每层 Encoder/Decoder 内部的关键组件：残差连接如何让深层网络可训练、LayerNorm 为什么选择层而非批、FFN 的隐藏维度为什么是 4 倍、Causal Mask 如何防止作弊，以及 Decoder-only 架构为什么成为大模型的主流选择。'
 category: 'tech'
 tags: ['Transformer', 'AI', '深度学习', '架构']
-pubDate: '2026-06-05'
+pubDate: '2026-06-06'
 heroImage: '../../assets/transformer-04-building-blocks-hero.png'
 lang: 'zh'
 ---
