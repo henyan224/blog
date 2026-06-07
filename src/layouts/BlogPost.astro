@@ -10,7 +10,7 @@ import Giscus from '../components/Giscus.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, category, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category, tags, articleStyle } = Astro.props;
 ---
 
 <html lang="zh-CN">
@@ -160,7 +160,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags } = 
 
 				<hr class="article-divider" />
 
-				<div class="prose">
+				<div class:list={['prose', articleStyle === 'narrative' && 'prose-narrative']}>
 					<slot />
 				</div>
 

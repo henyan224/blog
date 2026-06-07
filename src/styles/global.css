@@ -210,6 +210,35 @@ a:hover {
 	margin: 2.5rem 0;
 }
 
+/* Narrative article enhancements */
+.prose-narrative {
+	max-width: 660px;
+}
+
+.prose-narrative p {
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+.prose-narrative p strong {
+	color: var(--color-text);
+	background: linear-gradient(to bottom, transparent 60%, var(--color-accent-light) 60%);
+	padding: 0 0.15em;
+}
+
+.prose-narrative img {
+	display: block;
+	margin: 2.5rem auto;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
+	transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.prose-narrative img:hover {
+	transform: scale(1.01);
+	box-shadow: var(--shadow-xl);
+}
+
 .prose table {
 	width: 100%;
 	border-collapse: collapse;
