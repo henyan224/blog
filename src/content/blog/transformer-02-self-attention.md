@@ -3,6 +3,8 @@ title: 'Transformer 原理（二）：Self-Attention 深度拆解 —— Q K V �
 description: 'Transformer 系列第二篇。从"it 指代什么"的动机出发，逐步拆解 Self-Attention 的完整计算过程，深入理解 Q、K、V 的设计哲学与缩放因子的数学证明。'
 category: 'tech'
 tags: ['Transformer', 'AI', '深度学习', 'Self-Attention']
+series: 'Transformer 原理'
+seriesOrder: 2
 pubDate: '2026-06-04'
 heroImage: '../../assets/transformer-02-self-attention-hero.png'
 lang: 'zh'

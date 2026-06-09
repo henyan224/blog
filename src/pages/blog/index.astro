@@ -6,9 +6,44 @@ import Header from '../../components/Header.astro';
 import PostCard from '../../components/PostCard.astro';
 import { SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('blog')).sort(
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// 按系列分组
+const seriesMap = new Map<string, typeof allPosts>();
+const standalonePosts: typeof allPosts = [];
+
+for (const post of allPosts) {
+	if (post.data.series) {
+		const existing = seriesMap.get(post.data.series) || [];
+		existing.push(post);
+		seriesMap.set(post.data.series, existing);
+	} else {
+		standalonePosts.push(post);
+	}
+}
+
+// 系列内按 seriesOrder 排序
+for (const [, posts] of seriesMap) {
+	posts.sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+}
+
+// 系列按最新文章的发布时间排序
+const sortedSeries = [...seriesMap.entries()].sort(([, a], [, b]) => {
+	const latestA = Math.max(...a.map(p => p.data.pubDate.valueOf()));
+	const latestB = Math.max(...b.map(p => p.data.pubDate.valueOf()));
+	return latestB - latestA;
+});
+
+const totalPosts = allPosts.length;
+
+// 系列的 emoji 图标映射
+const seriesIcons: Record<string, string> = {
+	'Transformer 原理': '🧠',
+	'LogicAI': '🤖',
+	'代理原理': '🔒',
+};
 ---
 
 <!doctype html>
@@ -47,11 +82,146 @@ const posts = (await getCollection('blog')).sort(
 				margin-top: var(--space-md);
 			}
 
+			/* Series Section */
+			.series-section {
+				margin-bottom: var(--space-2xl);
+				animation: fadeInUp 0.5s ease-out forwards;
+				opacity: 0;
+			}
+
+			.series-section:nth-child(1) { animation-delay: 0s; }
+			.series-section:nth-child(2) { animation-delay: 0.1s; }
+			.series-section:nth-child(3) { animation-delay: 0.15s; }
+			.series-section:nth-child(4) { animation-delay: 0.2s; }
+
+			.series-header {
+				display: flex;
+				align-items: center;
+				gap: var(--space-sm);
+				margin-bottom: var(--space-lg);
+				padding-bottom: var(--space-sm);
+				border-bottom: 2px solid var(--color-border);
+			}
+
+			.series-icon {
+				font-size: 1.5rem;
+			}
+
+			.series-title {
+				font-size: 1.375rem;
+				font-weight: 700;
+				margin: 0;
+				color: var(--color-text);
+			}
+
+			.series-count {
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+				background: var(--color-bg-code);
+				padding: 0.15rem 0.5rem;
+				border-radius: var(--radius-full);
+				font-weight: 500;
+			}
+
+			.series-posts {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-sm);
+			}
+
+			.series-post-item {
+				display: flex;
+				align-items: center;
+				gap: var(--space-md);
+				padding: var(--space-md) var(--space-lg);
+				background: var(--color-bg-card);
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius-md);
+				text-decoration: none;
+				color: inherit;
+				transition: all var(--transition-base);
+			}
+
+			.series-post-item:hover {
+				border-color: var(--color-border-hover);
+				box-shadow: var(--shadow-md);
+				transform: translateX(4px);
+				color: inherit;
+			}
+
+			.series-order {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 2rem;
+				height: 2rem;
+				border-radius: var(--radius-full);
+				background: var(--color-accent);
+				color: white;
+				font-size: 0.8125rem;
+				font-weight: 700;
+				flex-shrink: 0;
+			}
+
+			.series-post-info {
+				flex: 1;
+				min-width: 0;
+			}
+
+			.series-post-title {
+				font-size: 1rem;
+				font-weight: 600;
+				margin: 0 0 0.25rem 0;
+				color: var(--color-text);
+				transition: color var(--transition-fast);
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.series-post-item:hover .series-post-title {
+				color: var(--color-accent);
+			}
+
+			.series-post-desc {
+				font-size: 0.8125rem;
+				color: var(--color-text-muted);
+				margin: 0;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.series-post-date {
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+				flex-shrink: 0;
+			}
+
+			/* Standalone section */
+			.standalone-section {
+				margin-bottom: var(--space-3xl);
+			}
+
+			.standalone-header {
+				display: flex;
+				align-items: center;
+				gap: var(--space-sm);
+				margin-bottom: var(--space-lg);
+				padding-bottom: var(--space-sm);
+				border-bottom: 2px solid var(--color-border);
+			}
+
+			.standalone-title {
+				font-size: 1.375rem;
+				font-weight: 700;
+				margin: 0;
+			}
+
 			.post-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 				gap: var(--space-xl);
-				margin-bottom: var(--space-3xl);
 			}
 
 			.empty-state {
@@ -68,6 +238,18 @@ const posts = (await getCollection('blog')).sort(
 				.post-grid {
 					grid-template-columns: 1fr;
 				}
+
+				.series-post-item {
+					padding: var(--space-sm) var(--space-md);
+				}
+
+				.series-post-desc {
+					display: none;
+				}
+
+				.series-post-title {
+					white-space: normal;
+				}
 			}
 		</style>
 	</head>
@@ -77,23 +259,59 @@ const posts = (await getCollection('blog')).sort(
 			<div class="page-header">
 				<h1>📝 全部文章</h1>
 				<p>技术与生活的记录</p>
-				<span class="post-count">共 {posts.length} 篇</span>
+				<span class="post-count">共 {totalPosts} 篇</span>
 			</div>
-			{posts.length > 0 ? (
-				<div class="post-grid">
-					{posts.map((post) => (
-						<PostCard
-							title={post.data.title}
-							description={post.data.description}
-							pubDate={post.data.pubDate}
-							category={post.data.category}
-							tags={post.data.tags}
-							heroImage={post.data.heroImage}
-							slug={post.id}
-						/>
-					))}
-				</div>
-			) : (
+
+			{/* 按系列展示 */}
+			{sortedSeries.map(([seriesName, posts]) => (
+				<section class="series-section">
+					<div class="series-header">
+						<span class="series-icon">{seriesIcons[seriesName] || '📚'}</span>
+						<h2 class="series-title">{seriesName}</h2>
+						<span class="series-count">{posts.length} 篇</span>
+					</div>
+					<div class="series-posts">
+						{posts.map((post) => (
+							<a href={`/blog/${post.id}/`} class="series-post-item">
+								<span class="series-order">{post.data.seriesOrder ?? '?'}</span>
+								<div class="series-post-info">
+									<h3 class="series-post-title">{post.data.title}</h3>
+									<p class="series-post-desc">{post.data.description}</p>
+								</div>
+								<span class="series-post-date">
+									{post.data.pubDate.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' })}
+								</span>
+							</a>
+						))}
+					</div>
+				</section>
+			))}
+
+			{/* 独立文章 */}
+			{standalonePosts.length > 0 && (
+				<section class="standalone-section">
+					<div class="standalone-header">
+						<span class="series-icon">📄</span>
+						<h2 class="standalone-title">独立文章</h2>
+						<span class="series-count">{standalonePosts.length} 篇</span>
+					</div>
+					<div class="post-grid">
+						{standalonePosts.map((post) => (
+							<PostCard
+								title={post.data.title}
+								description={post.data.description}
+								pubDate={post.data.pubDate}
+								category={post.data.category}
+								tags={post.data.tags}
+								heroImage={post.data.heroImage}
+								slug={post.id}
+							/>
+						))}
+					</div>
+				</section>
+			)}
+
+			{allPosts.length === 0 && (
 				<div class="empty-state">
 					<p>还没有文章，快去写一篇吧！</p>
 				</div>

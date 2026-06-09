@@ -3,6 +3,8 @@ title: '我想要一个属于自己的 AI 智能体'
 description: 'LogicAI2 系列第一篇。不讲架构，不讲代码——只讲一个朴素的需求：我希望有一个真正了解我、和我一起工作的 AI。'
 category: 'tech'
 tags: ['Agent', 'LogicAI2', 'AI']
+series: 'LogicAI'
+seriesOrder: 1
 pubDate: '2026-06-08'
 heroImage: '../../assets/agent-ep01-hero-1.png'
 articleStyle: 'narrative'

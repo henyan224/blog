@@ -3,6 +3,8 @@ title: 'Transformer 原理（三）：多头注意力与位置编码 —— 从�
 description: 'Transformer 系列第三篇。拆解多头注意力的设计哲学与参数量真相，并追溯位置编码从 Sinusoidal 到 RoPE 的进化史。'
 category: 'tech'
 tags: ['Transformer', 'AI', '深度学习', 'Multi-Head Attention', 'RoPE']
+series: 'Transformer 原理'
+seriesOrder: 3
 pubDate: '2026-06-05'
 heroImage: '../../assets/transformer-03-multi-head-hero.png'
 lang: 'zh'

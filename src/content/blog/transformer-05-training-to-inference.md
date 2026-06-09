@@ -3,6 +3,8 @@ title: 'Transformer 原理（五）：从训练到推理 —— 损失函数、K
 description: 'Transformer 系列最终篇。拆解交叉熵损失如何驱动模型学习、KV Cache 如何将推理从 O(n²) 降到 O(n)、MQA/GQA 如何压缩 KV Cache 的显存占用、Flash Attention 如何用分块计算突破显存瓶颈。'
 category: 'tech'
 tags: ['Transformer', 'AI', '深度学习', '推理优化']
+series: 'Transformer 原理'
+seriesOrder: 5
 pubDate: '2026-06-07'
 heroImage: '../../assets/transformer-05-training-to-inference-hero.png'
 lang: 'zh'

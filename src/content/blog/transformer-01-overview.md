@@ -3,6 +3,8 @@ title: 'Transformer 原理（一）：全局观 —— 为什么它改变了一�
 description: 'Transformer 系列第一篇。从 RNN 的困境出发，建立对 Transformer 架构的全局直觉：Encoder-Decoder 结构、数据流、Embedding 与 BPE 分词。'
 category: 'tech'
 tags: ['Transformer', 'AI', '深度学习', '架构']
+series: 'Transformer 原理'
+seriesOrder: 1
 pubDate: '2026-06-03'
 heroImage: '../../assets/transformer-overview-hero.png'
 lang: 'zh'
