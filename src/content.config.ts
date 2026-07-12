@@ -12,6 +12,7 @@ const blog = defineCollection({
 			description: z.string(),
 			category: z.enum(['tech', 'life']),
 			tags: z.array(z.string()).default([]),
+			slug: z.string().optional(),
 			series: z.string().optional(),
 			seriesOrder: z.number().optional(),
 			draft: z.boolean().default(false),

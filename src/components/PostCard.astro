@@ -17,10 +17,11 @@ interface Props {
 }
 
 const { title, description, pubDate, category, tags = [], heroImage, slug, featured = false } = Astro.props;
+const postUrl = slug.startsWith('/') ? slug : `/blog/${slug}/`;
 ---
 
 <article class:list={['post-card', { featured }]}>
-	<a href={`/blog/${slug}/`} class="post-card-link">
+	<a href={postUrl} class="post-card-link">
 		{heroImage && (
 			<div class="post-card-image">
 				<Image

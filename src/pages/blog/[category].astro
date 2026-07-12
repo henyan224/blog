@@ -6,6 +6,7 @@ import Header from '../../components/Header.astro';
 import PostCard from '../../components/PostCard.astro';
 import { SITE_TITLE, CATEGORIES } from '../../consts';
 import type { Category } from '../../consts';
+import { getPostUrl } from '../../utils/blog';
 
 export function getStaticPaths() {
 	return [
@@ -110,7 +111,7 @@ const posts = (await getCollection('blog', ({ data }) => data.category === categ
 							category={post.data.category}
 							tags={post.data.tags}
 							heroImage={post.data.heroImage}
-							slug={post.id}
+							slug={getPostUrl(post)}
 						/>
 					))}
 				</div>

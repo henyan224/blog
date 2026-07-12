@@ -1,63 +1,93 @@
-# Astro Starter Kit: Blog
+# HenYan's Blog
+
+Personal blog for technical notes, project reviews, and life reflections. Built with Astro and Markdown/MDX.
+
+## Tech Stack
+
+- Astro
+- Markdown / MDX content collections
+- RSS
+- Sitemap
+- KaTeX for math rendering
+- Giscus comments
+
+## Local Development
 
 ```sh
-npm create astro@latest -- --template blog
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The development server runs at `http://localhost:4321` by default.
 
-Features:
+## Build
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+```sh
+npm run build
+```
 
-## 🚀 Project Structure
+## Preview Production Build
 
-Inside of your Astro project, you'll see the following folders and files:
+```sh
+npm run preview
+```
+
+## Content
+
+Blog posts live in:
 
 ```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+src/content/blog/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Draft posts should use frontmatter:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```yaml
+draft: true
+```
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+Drafts are excluded from generated blog routes.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Knowledge Notes
 
-## 🧞 Commands
+Unpublished knowledge drafts live in:
 
-All commands are run from the root of the project, from a terminal:
+```text
+notes/
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+`notes/` is for private or pre-publication material such as LogicAI2 task reviews, lessons learned, and raw thinking notes. These files are not part of the Astro content collection and should not be treated as published blog posts.
 
-## 👀 Want to learn more?
+Real drafts under `notes/` must be reviewed before commit or push, especially for secrets, tokens, private service addresses, proxy configs, account data, and unpublished internal details.
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Templates
 
-## Credit
+Reusable writing templates live in:
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+```text
+templates/
+```
+
+Current template types:
+
+- `lesson.md`
+- `project-review.md`
+- `adr.md`
+- `thinking-note.md`
+- `technical-note.md`
+
+Each template includes the shared draft frontmatter fields used by the LogicAI2 → Blog knowledge workflow.
+
+## Publishing Boundary
+
+`notes/` and `templates/` are not publishing locations. A piece becomes a blog article only after it is reviewed, cleaned, moved into `src/content/blog/{topic}/`, and verified with:
+
+```sh
+npm run build
+```
+
+Do not place topic README files under `src/content/blog/**/`, because Markdown files there are loaded by Astro as blog content.
+
+## Notes
+
+Do not commit local secrets, proxy configs, build output, or dependencies.

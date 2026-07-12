@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import PostCard from '../components/PostCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, CATEGORIES } from '../consts';
+import { getPostUrl } from '../utils/blog';
 
 const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -251,7 +252,7 @@ const lifePosts = allPosts.filter(p => p.data.category === 'life').slice(0, 3);
 								category={post.data.category}
 								tags={post.data.tags}
 								heroImage={post.data.heroImage}
-								slug={post.id}
+								slug={getPostUrl(post)}
 								featured={i === 0}
 							/>
 						))}
