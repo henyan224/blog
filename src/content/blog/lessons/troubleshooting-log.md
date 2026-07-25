@@ -7,13 +7,13 @@ updatedDate: '2026-07-12'
 tags: ['运维', '代理', 'VPS', '踩坑']
 ---
 
-# 韪╁潙鏃ュ織
+# 踩坑日志
 
-| # | 棰嗗煙 | 闂 | 鏍瑰洜 | 瑙ｅ喅鏂规 | 鏃ユ湡 |
+| # | 领域 | 问题 | 根因 | 解决方案 | 日期 |
 |---|---|---|---|---|---|
-| 001 | 浠ｇ悊/Reality | VLESS Reality 涓滀含鑺傜偣杩炴帴 EOF | Reality dest 鐩爣 `www.microsoft.com` 鍝嶅簲瀛楄妭瓒呴檺 | dest/SNI 鏀逛负 `www.apple.com` | 2026-07-10 |
-| 002 | 浠ｇ悊/3X-UI | VLESS Reality 瀹㈡埛绔?EOF锛坒low 涓嶅尮閰嶏級 | 3X-UI 鍒涘缓 Client 鏃舵湭璁?`flow: xtls-rprx-vision` | Client 缂栬緫 鈫?Flow 閫?xtls-rprx-vision | 2026-07-10 |
-| 003 | 瀹㈡埛绔?| V2rayN 娴侀噺琚?Clash Verge TUN 鍔寔 | 涓や釜浠ｇ悊瀹㈡埛绔悓鏃惰繍琛岋紝TUN 閫犳垚璺敱鐜矾 | 褰诲簳閫€鍑?Clash Verge 鍐嶆祴 V2rayN | 2026-07-10 |
-| 004 | VPS/闃茬伀澧?| 涓滀含鑺傜偣 443 绔彛澶栭儴涓嶅彲杈?| UFW 榛樿鍙斁琛?22锛?43 琚尅 | `ufw allow 443/tcp` | 2026-07-10 |
+| 001 | 代理/Reality | VLESS Reality 东京节点连接 EOF | Reality dest 目标 `www.microsoft.com` 响应字节超限 | dest/SNI 改为 `www.apple.com` | 2026-07-10 |
+| 002 | 代理/3X-UI | VLESS Reality 客户端 EOF（flow 不匹配） | 3X-UI 创建 Client 时未设 `flow: xtls-rprx-vision` | Client 编辑 → Flow 选 `xtls-rprx-vision` | 2026-07-10 |
+| 003 | 客户端 | V2rayN 流量被 Clash Verge TUN 劫持 | 两个代理客户端同时运行，TUN 造成路由环路 | 彻底退出 Clash Verge 再测 V2rayN | 2026-07-10 |
+| 004 | VPS/防火墙 | 东京节点 443 端口外部不可达 | UFW 默认只放行 22，443 被拦 | `ufw allow 443/tcp` | 2026-07-10 |
 
-<!-- 鏂板鏉＄洰鐩存帴鍦ㄨ〃鏍兼湯灏捐拷鍔犱竴琛?-->
+<!-- 新增条目直接在表格末尾追加一行 -->
