@@ -2,11 +2,9 @@
 slug: 'proxy-03-client-config'
 title: '代理原理（三）：客户端配置 —— 规则、策略组与 DNS 防泄漏'
 description: '代理系列第三篇。深入 Clash 和 Shadowrocket 的配置体系：规则匹配逻辑、策略组设计、DNS 防泄漏、分流实战。让代理不仅能用，而且用得优雅。'
-category: 'tech'
 tags: ['代理', '网络', 'Clash', 'Shadowrocket', '分流']
 series: '代理原理'
 seriesOrder: 3
-draft: true
 pubDate: '2026-06-09'
 heroImage: '../../../assets/proxy-hero.png'
 lang: 'zh'

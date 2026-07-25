@@ -1,22 +1,21 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import CategoryBadge from './CategoryBadge.astro';
+import SeriesBadge from './SeriesBadge.astro';
 import FormattedDate from './FormattedDate.astro';
-import type { Category } from '../consts';
 
 interface Props {
 	title: string;
 	description: string;
 	pubDate: Date;
-	category: Category;
+	series?: string;
 	tags?: string[];
 	heroImage?: ImageMetadata;
 	slug: string;
 	featured?: boolean;
 }
 
-const { title, description, pubDate, category, tags = [], heroImage, slug, featured = false } = Astro.props;
+const { title, description, pubDate, series, tags = [], heroImage, slug, featured = false } = Astro.props;
 const postUrl = slug.startsWith('/') ? slug : `/blog/${slug}/`;
 ---
 
@@ -35,7 +34,7 @@ const postUrl = slug.startsWith('/') ? slug : `/blog/${slug}/`;
 		)}
 		<div class="post-card-content">
 			<div class="post-card-meta">
-				<CategoryBadge category={category} />
+				<SeriesBadge series={series} />
 				<time class="post-card-date">
 					<FormattedDate date={pubDate} />
 				</time>

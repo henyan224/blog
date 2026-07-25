@@ -2,8 +2,8 @@
 slug: 'why-blogging-matters'
 title: '写博客的意义'
 description: '为什么要写博客？记录、思考、分享——在信息爆炸的时代，写作是最好的学习方式。'
-category: 'life'
 tags: ['写作', '思考', '成长']
+series: '小白的秘密基地'
 pubDate: '2026-05-30'
 heroImage: '../../../assets/blog-placeholder-2.jpg'
 lang: 'zh'

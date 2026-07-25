@@ -10,12 +10,10 @@ const blog = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
-			category: z.enum(['tech', 'life']),
 			tags: z.array(z.string()).default([]),
 			slug: z.string().optional(),
 			series: z.string().optional(),
 			seriesOrder: z.number().optional(),
-			draft: z.boolean().default(false),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),

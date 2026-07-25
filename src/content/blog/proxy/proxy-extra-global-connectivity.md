@@ -2,11 +2,9 @@
 slug: 'proxy-extra-global-connectivity'
 title: '代理原理（番外）：全球联网指南 —— eSIM、漫游与卫星互联网'
 description: '代理系列番外篇。解决物理层的联网问题：eSIM 是什么、全球漫游方案对比、Google Fi、Starlink，让你在世界任何角落都不断联。'
-category: 'tech'
 tags: ['网络', 'eSIM', '全球漫游', 'Starlink']
 series: '代理原理'
 seriesOrder: 6
-draft: true
 pubDate: '2026-06-09'
 heroImage: '../../../assets/proxy-hero.png'
 lang: 'zh'

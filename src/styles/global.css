@@ -1,5 +1,5 @@
 /*
-  HenYan's Blog — Global Design System
+  HenYan's Blog 鈥?Global Design System
   Clean, modern, light theme with premium typography
 */
 
@@ -14,16 +14,6 @@
 	--color-text-muted: #a1a1aa;
 	--color-border: #e4e4e7;
 	--color-border-hover: #d4d4d8;
-
-	/* Accent — Indigo for tech */
-	--color-tech: #6366f1;
-	--color-tech-light: #e0e7ff;
-	--color-tech-dark: #4338ca;
-
-	/* Accent — Amber for life */
-	--color-life: #f59e0b;
-	--color-life-light: #fef3c7;
-	--color-life-dark: #d97706;
 
 	/* Primary accent */
 	--color-accent: #6366f1;

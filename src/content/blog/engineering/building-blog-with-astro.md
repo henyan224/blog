@@ -2,7 +2,6 @@
 slug: 'building-blog-with-astro'
 title: '用 Astro 搭建个人博客'
 description: '从零开始用 Astro 搭建一个现代化的个人博客，记录完整过程和踩过的坑。'
-category: 'tech'
 tags: ['astro', 'blog', 'frontend']
 pubDate: '2026-06-01'
 heroImage: '../../../assets/blog-placeholder-1.jpg'

@@ -2,11 +2,9 @@
 slug: 'proxy-04-proxy-chain-and-residential-ip'
 title: '代理原理（四）：代理链与住宅 IP —— 为什么你会被封号'
 description: '代理系列第四篇。拆解 DC IP vs 住宅 IP 的本质区别、Claude/ChatGPT 的风控机制、代理链的搭建逻辑、WARP 免费方案、IP 纯净度检测。'
-category: 'tech'
 tags: ['代理', '网络', '住宅IP', '代理链', 'WARP']
 series: '代理原理'
 seriesOrder: 4
-draft: true
 pubDate: '2026-06-09'
 heroImage: '../../../assets/proxy-hero.png'
 lang: 'zh'

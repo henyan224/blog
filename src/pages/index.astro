@@ -4,16 +4,14 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import PostCard from '../components/PostCard.astro';
-import { SITE_DESCRIPTION, SITE_TITLE, CATEGORIES } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getPostUrl } from '../utils/blog';
 
-const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+const allPosts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const latestPosts = allPosts.slice(0, 6);
-const techPosts = allPosts.filter(p => p.data.category === 'tech').slice(0, 3);
-const lifePosts = allPosts.filter(p => p.data.category === 'life').slice(0, 3);
 ---
 
 <!doctype html>
@@ -136,52 +134,6 @@ const lifePosts = allPosts.filter(p => p.data.category === 'life').slice(0, 3);
 				gap: var(--space-xl);
 			}
 
-			/* Category cards */
-			.category-grid {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: var(--space-lg);
-				margin-bottom: var(--space-3xl);
-			}
-
-			.category-card {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: var(--space-xl) var(--space-lg);
-				background: var(--color-bg-card);
-				border: 1px solid var(--color-border);
-				border-radius: var(--radius-lg);
-				text-decoration: none;
-				color: inherit;
-				transition: all var(--transition-base);
-				text-align: center;
-			}
-
-			.category-card:hover {
-				border-color: var(--color-border-hover);
-				box-shadow: var(--shadow-md);
-				transform: translateY(-2px);
-				color: inherit;
-			}
-
-			.category-icon {
-				font-size: 2rem;
-				margin-bottom: var(--space-sm);
-			}
-
-			.category-name {
-				font-size: 1.125rem;
-				font-weight: 700;
-				margin-bottom: 0.25rem;
-			}
-
-			.category-desc {
-				font-size: 0.8125rem;
-				color: var(--color-text-muted);
-				margin: 0;
-			}
-
 			@media (max-width: 768px) {
 				.hero h1 {
 					font-size: 2.25rem;
@@ -195,10 +147,6 @@ const lifePosts = allPosts.filter(p => p.data.category === 'life').slice(0, 3);
 				.post-grid {
 					grid-template-columns: 1fr;
 				}
-
-				.category-grid {
-					grid-template-columns: 1fr;
-				}
 			}
 		</style>
 	</head>
@@ -208,9 +156,9 @@ const lifePosts = allPosts.filter(p => p.data.category === 'life').slice(0, 3);
 			<!-- Hero -->
 			<section class="hero">
 				<p class="hero-greeting">👋 你好，我是 HenYan</p>
-				<h1>Tech & Life Blog</h1>
+				<h1>知识实验室</h1>
 				<p class="hero-desc">
-					记录技术探索与生活思考，在代码与生活之间寻找平衡。
+					记录 AI Agent 架构设计、工程实践与技术探索的公开知识库。
 				</p>
 				<div class="hero-links">
 					<a href="/blog" class="hero-btn hero-btn-primary">
@@ -221,21 +169,6 @@ const lifePosts = allPosts.filter(p => p.data.category === 'life').slice(0, 3);
 					</a>
 				</div>
 			</section>
-
-			<!-- Categories -->
-			<div class="category-grid">
-				<a href="/blog/tech" class="category-card">
-					<span class="category-icon">💻</span>
-					<span class="category-name">技术</span>
-					<p class="category-desc">AI、编程、工程实践</p>
-				</a>
-				<a href="/blog/life" class="category-card">
-					<span class="category-icon">🌿</span>
-					<span class="category-name">生活</span>
-					<p class="category-desc">思考、记录、感悟</p>
-				</a>
-			</div>
-
 			<!-- Latest Posts -->
 			{latestPosts.length > 0 && (
 				<section class="section">
@@ -249,7 +182,7 @@ const lifePosts = allPosts.filter(p => p.data.category === 'life').slice(0, 3);
 								title={post.data.title}
 								description={post.data.description}
 								pubDate={post.data.pubDate}
-								category={post.data.category}
+								series={post.data.series}
 								tags={post.data.tags}
 								heroImage={post.data.heroImage}
 								slug={getPostUrl(post)}

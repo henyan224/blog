@@ -5,12 +5,12 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import CategoryBadge from '../components/CategoryBadge.astro';
+import SeriesBadge from '../components/SeriesBadge.astro';
 import Giscus from '../components/Giscus.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, category, tags, articleStyle } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, series, tags, articleStyle } = Astro.props;
 ---
 
 <html lang="zh-CN">
@@ -131,7 +131,7 @@ const { title, description, pubDate, updatedDate, heroImage, category, tags, art
 			<article class="article-container">
 				<div class="article-header">
 					<div class="article-meta">
-						<CategoryBadge category={category} size="md" />
+						<SeriesBadge series={series} size="md" />
 						<span class="article-date">
 							<FormattedDate date={pubDate} />
 						</span>

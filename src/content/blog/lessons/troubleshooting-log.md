@@ -2,11 +2,9 @@
 slug: 'troubleshooting-log'
 title: '踩坑日志：部署与运维中的实战问题记录'
 description: '记录在 VPS 部署、代理搭建、Web 开发等领域遇到的真实问题。'
-category: 'tech'
 pubDate: '2026-07-12'
 updatedDate: '2026-07-12'
 tags: ['运维', '代理', 'VPS', '踩坑']
-draft: true
 ---
 
 # 韪╁潙鏃ュ織

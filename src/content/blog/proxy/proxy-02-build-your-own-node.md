@@ -2,11 +2,9 @@
 slug: 'proxy-02-build-your-own-node'
 title: '代理原理（二）：自建节点实战 —— 从零搭建 VLESS + Reality'
 description: '代理系列第二篇。手把手搭建一台 VLESS + Reality 代理服务器：VPS 选购、Xray-core 安装、Reality 配置、SNI 选择策略、客户端连接。'
-category: 'tech'
 tags: ['代理', '网络', 'VLESS', 'Reality', 'Xray']
 series: '代理原理'
 seriesOrder: 2
-draft: true
 pubDate: '2026-06-09'
 heroImage: '../../../assets/proxy-hero.png'
 lang: 'zh'

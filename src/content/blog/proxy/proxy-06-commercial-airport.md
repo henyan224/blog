@@ -2,11 +2,9 @@
 slug: 'proxy-06-commercial-airport'
 title: '代理原理（六）：从零理解商业机场 —— 一篇讲透内在逻辑的指南'
 description: '代理系列番外篇。完整拆解商业机场的商业模型、技术架构、用户生命周期、流量计费、支付系统、线路选择、运营流程和成本利润分析。在动手之前，先彻底搞懂这门生意的每一个因果环节。'
-category: 'tech'
 tags: ['代理', '机场', 'Xboard', 'XrayR', '商业化']
 series: '代理原理'
 seriesOrder: 6
-draft: false
 pubDate: '2026-07-10'
 heroImage: '../../../assets/proxy-hero.png'
 lang: 'zh'

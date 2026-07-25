@@ -2,11 +2,9 @@
 slug: 'proxy-05-ai-service-access'
 title: '代理原理（五）：AI 服务访问实战 —— Claude、GPT 与 API 中转'
 description: '代理系列最终篇。Claude/ChatGPT/Gemini 的访问策略、Apple ID 跨区订阅低价方案、one-api 中转平台部署，把前四篇的知识串成完整的生产力链路。'
-category: 'tech'
 tags: ['代理', 'AI', 'Claude', 'ChatGPT', 'one-api']
 series: '代理原理'
 seriesOrder: 5
-draft: true
 pubDate: '2026-06-09'
 heroImage: '../../../assets/proxy-hero.png'
 lang: 'zh'

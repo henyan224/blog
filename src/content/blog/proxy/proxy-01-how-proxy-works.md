@@ -2,11 +2,9 @@
 slug: 'proxy-01-how-proxy-works'
 title: '代理原理（一）：你的数据包是怎么翻过墙的'
 description: '从 IP 地址和 DNS 讲起，拆解代理的本质、协议演进（SOCKS5 → SS → VMess → VLESS → Trojan → Reality）、传输层伪装、代理链与路由规则。'
-category: 'tech'
 tags: ['代理', '网络', 'VPN', 'Shadowsocks', 'VLESS']
 series: '代理原理'
 seriesOrder: 1
-draft: true
 pubDate: '2026-06-09'
 heroImage: '../../../assets/proxy-hero.png'
 lang: 'zh'

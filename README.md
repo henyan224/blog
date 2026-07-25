@@ -1,6 +1,6 @@
 # HenYan's Blog
 
-Personal blog for technical notes, project reviews, and life reflections. Built with Astro and Markdown/MDX.
+AI Agent 架构设计、工程实践与技术探索的公开知识发布站。基于 Astro 与 Markdown/MDX 构建。
 
 ## Tech Stack
 
@@ -34,19 +34,19 @@ npm run preview
 
 ## Content
 
-Blog posts live in:
+Published blog posts live in:
 
 ```text
 src/content/blog/
 ```
 
-Draft posts should use frontmatter:
+Use `series` to organize related posts. For example, life writing belongs to:
 
 ```yaml
-draft: true
+series: '小白的秘密基地'
 ```
 
-Drafts are excluded from generated blog routes.
+All articles in `src/content/blog/` are publicly generated; the site does not hide posts through a `draft` field.
 
 ## Knowledge Notes
 
@@ -60,27 +60,9 @@ notes/
 
 Real drafts under `notes/` must be reviewed before commit or push, especially for secrets, tokens, private service addresses, proxy configs, account data, and unpublished internal details.
 
-## Templates
-
-Reusable writing templates live in:
-
-```text
-templates/
-```
-
-Current template types:
-
-- `lesson.md`
-- `project-review.md`
-- `adr.md`
-- `thinking-note.md`
-- `technical-note.md`
-
-Each template includes the shared draft frontmatter fields used by the LogicAI2 → Blog knowledge workflow.
-
 ## Publishing Boundary
 
-`notes/` and `templates/` are not publishing locations. A piece becomes a blog article only after it is reviewed, cleaned, moved into `src/content/blog/{topic}/`, and verified with:
+`notes/` is not a publishing location. A piece becomes a blog article only after it is reviewed, cleaned, moved into `src/content/blog/{topic}/`, and verified with:
 
 ```sh
 npm run build

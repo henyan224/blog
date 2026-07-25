@@ -1,0 +1,50 @@
+---
+import { seriesIcons } from '../data/seriesIcons';
+
+interface Props {
+	series?: string;
+	size?: 'sm' | 'md';
+}
+
+const { series, size = 'sm' } = Astro.props;
+const icon = series ? (seriesIcons[series] || '📚') : '';
+---
+
+{series && (
+	<span class:list={['badge', 'badge-series', `badge-${size}`]}>
+		<span class="badge-icon">{icon}</span>
+		{series}
+	</span>
+)}
+
+<style>
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		font-weight: 600;
+		border-radius: var(--radius-full);
+		white-space: nowrap;
+		transition: transform var(--transition-fast);
+		background: var(--color-accent-light);
+		color: var(--color-accent-hover);
+	}
+
+	.badge:hover {
+		transform: scale(1.05);
+	}
+
+	.badge-sm {
+		font-size: 0.75rem;
+		padding: 0.2rem 0.625rem;
+	}
+
+	.badge-md {
+		font-size: 0.8125rem;
+		padding: 0.3rem 0.875rem;
+	}
+
+	.badge-icon {
+		font-size: 0.875em;
+	}
+</style>
