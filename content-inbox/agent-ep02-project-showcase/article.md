@@ -16,14 +16,14 @@ LogicAI 是一套从零搭建的专属 AI 智能体系统：以刘邦为主 Agen
 
 这篇文章用两段视频，直观展示项目的实际运行效果。
 
-## 多 Agent 协作展示
+## 演示一：核心工作流
 
 <video controls preload="metadata" width="100%">
   <source src="/videos/logicai-demo-1.mp4" type="video/mp4" />
   您的浏览器不支持 video 标签，请 <a href="/videos/logicai-demo-1.mp4">下载视频</a> 观看。
 </video>
 
-## Telegram 语音交互展示
+## 演示二：多 Agent 协作
 
 <video controls preload="metadata" width="100%">
   <source src="/videos/logicai-demo-2.mp4" type="video/mp4" />

@@ -1,0 +1,47 @@
+{
+  "protocolVersion": "1.0",
+  "submissionId": "blog-agent-memory-layer-rag-evolution-1785569330034",
+  "submittedAt": "2026-08-01T07:19:47.529Z",
+  "updatedAt": "2026-08-03T10:30:00.000Z",
+  "source": {
+    "system": "LogicAI",
+    "project": "blog-bridge",
+    "role": "InfoScout",
+    "taskId": "N/A"
+  },
+  "contentType": "blog-post",
+  "requestedAction": "review",
+  "visibility": "private",
+  "article": {
+    "file": "article.md",
+    "slug": "agent-memory-layer-rag-evolution",
+    "series": "Agent 架构演化系列",
+    "tags": [
+      "Agent",
+      "Memory",
+      "RAG",
+      "上下文压缩",
+      "混合检索",
+      "向量检索",
+      "Embedding",
+      "ColBERT",
+      "ANN",
+      "CoALA",
+      "LogicAI2"
+    ]
+  },
+  "review": {
+    "required": true,
+    "status": "published"
+  },
+  "revision": [
+    {
+      "at": "2026-08-03T10:00:00.000Z",
+      "note": "修正 article.md frontmatter：series 由『Agent 架构演化』改为『Agent 架构演化系列』（与正式发布版一致），seriesOrder 由 2 改为 3，避免被站点聚合为独立系列。"
+    },
+    {
+      "at": "2026-08-03T10:30:00.000Z",
+      "note": "向量检索深潜调研补强：新增 2.3 节（embedding 模型进化 + 三种编码架构 bi/cross/late-interaction + MTEB 2025-2026 开源反超）与 2.4 节（ANN 索引 HNSW/IVF-PQ/DiskANN + 向量库选型 + ColPali 多模态检索），原 2.3-2.6 顺延为 2.5-2.8；description 与 tags 同步更新；参考文献新增 12 篇。"
+    }
+  ]
+}

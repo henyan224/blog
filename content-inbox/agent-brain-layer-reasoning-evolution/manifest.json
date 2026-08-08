@@ -1,0 +1,35 @@
+{
+  "protocolVersion": "1.0",
+  "submissionId": "blog-agent-brain-layer-reasoning-evolution-1785393919409",
+  "submittedAt": "2026-07-30T06:26:29.064Z",
+  "updatedAt": "2026-07-30T06:45:19.409Z",
+  "source": {
+    "system": "LogicAI",
+    "project": "blog-bridge",
+    "role": "InfoScout",
+    "taskId": "N/A"
+  },
+  "contentType": "blog-post",
+  "requestedAction": "review",
+  "visibility": "private",
+  "article": {
+    "file": "article.md",
+    "slug": "agent-brain-layer-reasoning-evolution",
+    "series": "Agent 架构演化系列",
+    "tags": [
+      "Agent",
+      "LLM",
+      "推理",
+      "Tree of Thoughts",
+      "MCTS",
+      "LATS",
+      "ReAct",
+      "CoT",
+      "LogicAI"
+    ]
+  },
+  "review": {
+    "required": true,
+    "status": "published"
+  }
+}

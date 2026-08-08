@@ -1,0 +1,38 @@
+{
+  "protocolVersion": "1.0",
+  "submissionId": "blog-agent-perception-layer-input-evolution-1785736787125",
+  "submittedAt": "2026-08-03T05:59:47.125Z",
+  "updatedAt": "2026-08-03T08:20:00.000Z",
+  "source": {
+    "system": "LogicAI",
+    "project": "blog-bridge",
+    "role": "InfoScout",
+    "taskId": "N/A"
+  },
+  "contentType": "blog-post",
+  "requestedAction": "review",
+  "visibility": "private",
+  "article": {
+    "file": "article.md",
+    "slug": "agent-perception-layer-input-evolution",
+    "series": "Agent 架构演化系列",
+    "tags": [
+      "Agent",
+      "Perception",
+      "VLM",
+      "GUI Agent",
+      "UI-TARS",
+      "OmniParser",
+      "多模态",
+      "CLIP",
+      "LLaVA",
+      "GPT-4o",
+      "LogicAI2"
+    ]
+  },
+  "review": {
+    "required": true,
+    "status": "published"
+  },
+  "revision": "2026-08-03: 第一站新增'多模态 VLM 三年进化'小节（CLIP→拼接式→原生多模态时间线、三大对齐技术、对 GUI 感知的意义）；补充 CLIP/Flamingo/BLIP-2/LLaVA/GPT-4V/Gemini/GPT-4o/GPT-5 等参考文献；tags 增加 CLIP、LLaVA、GPT-4o。"
+}

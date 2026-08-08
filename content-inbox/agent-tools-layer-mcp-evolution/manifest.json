@@ -1,0 +1,38 @@
+{
+  "protocolVersion": "1.0",
+  "submissionId": "blog-agent-tools-layer-mcp-evolution-1785736331864",
+  "submittedAt": "2026-08-01T10:35:19.533Z",
+  "updatedAt": "2026-08-03T05:52:11.864Z",
+  "source": {
+    "system": "LogicAI",
+    "project": "blog-bridge",
+    "role": "InfoScout",
+    "taskId": "N/A"
+  },
+  "contentType": "blog-post",
+  "requestedAction": "review",
+  "visibility": "private",
+  "article": {
+    "file": "article.md",
+    "slug": "agent-tools-layer-mcp-evolution",
+    "series": "Agent 架构演化系列",
+    "tags": [
+      "Agent",
+      "Function Calling",
+      "Responses API",
+      "MCP",
+      "Tool Use",
+      "Toolformer",
+      "Gorilla",
+      "BFCL",
+      "GUI Agent",
+      "ToolRegistry",
+      "Tool Executor",
+      "LogicAI"
+    ]
+  },
+  "review": {
+    "required": true,
+    "status": "published"
+  }
+}

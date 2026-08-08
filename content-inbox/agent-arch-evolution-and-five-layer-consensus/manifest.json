@@ -1,0 +1,30 @@
+{
+  "protocolVersion": "1.0",
+  "submissionId": "blog-agent-arch-evolution-and-five-layer-consensus-1785230365798",
+  "submittedAt": "2026-07-28T08:49:12.526Z",
+  "updatedAt": "2026-07-28T09:19:25.798Z",
+  "source": {
+    "system": "LogicAI",
+    "project": "blog-bridge",
+    "role": "InfoScout",
+    "taskId": "N/A"
+  },
+  "contentType": "blog-post",
+  "requestedAction": "review",
+  "visibility": "private",
+  "article": {
+    "file": "article.md",
+    "slug": "agent-arch-evolution-and-five-layer-consensus",
+    "series": "Agent 架构演化系列",
+    "tags": [
+      "Agent",
+      "Architecture",
+      "MCP",
+      "LLM"
+    ]
+  },
+  "review": {
+    "required": true,
+    "status": "published"
+  }
+}

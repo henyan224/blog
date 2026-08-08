@@ -1,0 +1,28 @@
+{
+  "protocolVersion": "1.0",
+  "submissionId": "blog-agent-ep02-project-showcase-1786191481761",
+  "submittedAt": "2026-08-08T12:18:01.761Z",
+  "source": {
+    "system": "LogicAI",
+    "project": "blog-bridge",
+    "role": "InfoScout",
+    "taskId": "N/A"
+  },
+  "contentType": "blog-post",
+  "requestedAction": "review",
+  "visibility": "private",
+  "article": {
+    "file": "article.md",
+    "slug": "agent-ep02-project-showcase",
+    "series": "LogicAI",
+    "tags": [
+      "LogicAI",
+      "LogicAI2",
+      "项目展示"
+    ]
+  },
+  "review": {
+    "required": true,
+    "status": "published"
+  }
+}
