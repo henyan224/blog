@@ -1,0 +1,60 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={`服务条款 | ${SITE_TITLE}`} description="HenYan Blog 与 LogicAI 服务条款" />
+		<style>
+			.legal-container { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) var(--space-lg); }
+			.legal-header { margin-bottom: var(--space-2xl); }
+			.legal-header h1 { margin-bottom: var(--space-sm); }
+			.legal-header p { color: var(--color-text-secondary); margin: 0; }
+			.legal-content { font-size: 1.0625rem; line-height: 1.8; }
+			.legal-content h2 { margin: 2.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--color-border); }
+			.legal-content p, .legal-content li { color: var(--color-text); }
+			.legal-content ul { padding-left: 1.5rem; }
+			.legal-content li { margin-bottom: .5rem; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article class="legal-container">
+				<header class="legal-header">
+					<h1>服务条款</h1>
+					<p>生效日期：2026 年 9 月 16 日</p>
+				</header>
+				<div class="legal-content">
+					<p>欢迎使用 HenYan Blog（<a href="https://henyan224.com">henyan224.com</a>）及其关联的 LogicAI 服务。访问或使用服务即表示您同意本条款。</p>
+
+					<h2>服务说明</h2>
+					<p>本站提供公开技术内容。LogicAI 是一项辅助完成信息处理、内容创作和经授权的第三方服务集成的工具。服务功能可能调整、暂停或终止。</p>
+
+					<h2>账户与第三方授权</h2>
+					<p>当您连接 Google 等第三方账户时，您确认有权授予所请求的权限，并应自行保护账户、设备和授权凭据。您可随时通过第三方账户设置撤销授权。</p>
+					<p>对于由您的指令发起的操作，包括邮件发送、文件访问或内容处理，您应在执行前确认其对象、内容和影响。</p>
+
+					<h2>可接受的使用</h2>
+					<p>您不得利用服务从事违法、侵权、欺诈、破坏系统安全、侵犯他人隐私或违反第三方平台规则的活动。不得规避访问控制、滥用服务资源或干扰服务正常运行。</p>
+
+					<h2>内容与知识产权</h2>
+					<p>除另有说明外，本站内容受适用知识产权法律保护。您保留自己提交内容中的权利，并授权我们在提供服务所必需的范围内处理该内容。使用第三方内容时，您应确保具有必要权利或许可。</p>
+
+					<h2>免责声明</h2>
+					<p>服务按“现状”和“可用”基础提供。我们不保证服务始终无中断、无错误，亦不保证 AI 生成内容或第三方服务数据完整、准确或适合特定用途。您应对依赖服务输出作出的决定进行独立判断。</p>
+
+					<h2>责任限制</h2>
+					<p>在适用法律允许的最大范围内，我们不对因使用或无法使用服务导致的间接、附带、特殊、后果性或惩罚性损失承担责任。</p>
+
+					<h2>条款更新与联系</h2>
+					<p>我们可能更新本条款，更新后的版本将在本页公布并更新生效日期。若您不同意更新后的条款，应停止使用服务。如有问题，请联系 <a href="mailto:hello@henyan224.com">hello@henyan224.com</a>。</p>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

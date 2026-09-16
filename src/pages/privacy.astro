@@ -1,0 +1,62 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={`隐私政策 | ${SITE_TITLE}`} description="HenYan Blog 与 LogicAI 服务的隐私政策" />
+		<style>
+			.legal-container { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) var(--space-lg); }
+			.legal-header { margin-bottom: var(--space-2xl); }
+			.legal-header h1 { margin-bottom: var(--space-sm); }
+			.legal-header p { color: var(--color-text-secondary); margin: 0; }
+			.legal-content { font-size: 1.0625rem; line-height: 1.8; }
+			.legal-content h2 { margin: 2.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--color-border); }
+			.legal-content p, .legal-content li { color: var(--color-text); }
+			.legal-content ul { padding-left: 1.5rem; }
+			.legal-content li { margin-bottom: .5rem; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article class="legal-container">
+				<header class="legal-header">
+					<h1>隐私政策</h1>
+					<p>生效日期：2026 年 9 月 16 日</p>
+				</header>
+				<div class="legal-content">
+					<p>本政策说明 HenYan Blog（<a href="https://henyan224.com">henyan224.com</a>）及其关联的 LogicAI 服务如何处理个人信息。</p>
+
+					<h2>我们处理的信息</h2>
+					<p>访问本站时，托管和安全服务可能处理标准的技术日志信息，例如 IP 地址、浏览器类型、请求时间和访问页面，用于保障服务运行、安全和故障排查。</p>
+					<p>LogicAI 的可选 Google 集成功能仅在您明确授权后访问您授予的 Google 账户数据：</p>
+					<ul>
+						<li>Gmail 集成：读取、搜索或发送邮件，仅限您在服务中主动发起的操作所需范围；</li>
+						<li>Google Drive 集成：列出、搜索或读取您明确请求操作的文件及其元数据。</li>
+					</ul>
+
+					<h2>使用目的</h2>
+					<p>我们仅将上述信息用于提供您请求的功能、维持服务安全、排查技术问题和遵守适用法律义务。不会将 Google 用户数据用于广告投放、出售或与第三方数据经纪商共享。</p>
+
+					<h2>Google 数据与授权</h2>
+					<p>Google 授权令牌仅用于代表您调用已授权的 Google API。令牌以受访问控制的方式保存，并在不再需要时删除。您可随时在 Google 账户的第三方应用访问权限页面撤销授权；撤销后，相关集成将无法继续访问您的 Google 数据。</p>
+					<p>我们对 Google API 收到的信息的使用和传输遵循 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noreferrer">Google API Services User Data Policy</a>，包括其中的 Limited Use 要求。</p>
+
+					<h2>数据保存与共享</h2>
+					<p>数据仅在实现上述目的所需期间内保存。除提供服务所必需的托管、安全服务提供方，或法律要求外，我们不会向第三方披露个人信息。</p>
+
+					<h2>您的选择与联系</h2>
+					<p>您可以停止使用服务、撤销 Google 授权，或联系 <a href="mailto:hello@henyan224.com">hello@henyan224.com</a> 询问本政策或请求处理与删除相关数据。我们可能在服务或法律要求允许的范围内处理该请求。</p>
+
+					<h2>政策更新</h2>
+					<p>我们可能因服务或法律变化更新本政策。更新后的版本将在本页发布，并更新生效日期。</p>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
